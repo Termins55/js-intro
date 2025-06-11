@@ -165,26 +165,71 @@
 // console.log(greeting + age + ' years old');
 
 // скорочені операції +=, *=, -=, /=, ....
-let sum = 5;
-sum += 5; // sum = sum + 5;
-console.log(sum);
-sum *=10; // sum = sum * 10;
-console.log(sum);
+// let sum = 5;
+// sum += 5; // sum = sum + 5;
+// console.log(sum);
+// sum *=10; // sum = sum * 10;
+// console.log(sum);
 
-// інкремент постфіксний
-sum++; // sum += 1; // sum= sum +1;
-console.log(sum);
-let x = 10;
-const y = x++;
-console.log('y=', y);
-console.log(x);
+// // інкремент постфіксний
+// sum++; // sum += 1; // sum= sum +1;
+// console.log(sum);
+// let x = 10;
+// const y = x++;
+// console.log('y=', y);
+// console.log(x);
 
-// інкремент префіксний
-let x1 = 10;
-const y1 = ++x1;
-console.log('y1=', y1);
-console.log(x1);
+// // інкремент префіксний
+// let x1 = 10;
+// const y1 = ++x1;
+// console.log('y1=', y1);
+// console.log(x1);
 
 // декремент: --x, x--
+
+//---------------------------------------
+// Вивести 2 числа і вивести їх суму
+// const a1 = prompt('Введіть перше число:');
+// // const a2 = prompt('Введіть друге число:');
+// const a2 = 100;
+// const sum = a1 + a2;
+// console.log(sum);
+
+// приведення типів (явне)
+// result = Number(sourse)
+// const res1 = Number ('10');
+// console.log(res1)
+
+// const res2 = Number (null);
+// console.log(res2)
+
+// const res3 = String(200); // '200'
+// console.log(res3);
+
+// // Вивести 2 числа і вивести їх суму
+// // const Op1 = +prompt('Введіть перше число:');
+// const Op1 = Number(prompt('Введіть перше число:'));
+// const Op2 = Number(prompt('Введіть друге число:'));
+// const sum = Op1 + Op2;
+// console.log(sum)
+
+// Вивести 3 числа і порахувати їх добуток
+
+// const Op1 = Number(prompt('Введіть перше число:'));
+// const Op2 = Number(prompt('Введіть друге число:'));
+// const Op3 = Number(prompt('Введіть третє число:'));
+
+// const sum = Op1 * Op2 * Op3;
+// console.log(sum)
+
+// приведення типів (неявне) - варто уникати усюди, де можна
+
+console.log("10 + '10' = ", 10 + '10')
+console.log("null + '10' = ", null + '10')
+
+
+
+
+
 
 
