@@ -170,3 +170,7 @@ if (!isAdult) {
 
 // Number.isNaN(NaN)
 // не можна перевіряти NaN===NaN
+
+
+
+
