@@ -79,10 +79,48 @@
 
 // 1) Вивести номери сторінок з 1ї до останньої через do..while
 
-let currentPage = 0;
-const TOTAL_PAGE_AMOUND = 10;
+// let currentPage = 0;
+// const TOTAL_PAGE_AMOUND = 10;
 
-do {
-  currentPage++;
-  console.log(currentPage);
-} while (currentPage<TOTAL_PAGE_AMOUND);
+// do {
+//   currentPage++;
+//   console.log(currentPage);
+// } while (currentPage<TOTAL_PAGE_AMOUND);
+
+// порахувати суму чисел від 1 до 20
+
+// 1 2 3 4 5 6 7 8 9 ...
+
+let i = 1;
+let sum = 0; // акумулятор
+while (i <= 20) {
+  sum = sum + i;
+  i++;
+}
+console.log("sum :>> ", sum);
+
+// 96 i=1;
+// 98 i<=20 => true;
+// 99       sum = 0 + 1 = 1
+// 100      i = i + 1 = 1 + 1 = 2
+// 98  2<=20 => true;
+// 99       sum = 1 + 2 = 3
+// 100      i = i + 1 = 2 + 1 = 3
+// ....
+// 98 20<=20 => true;
+// 99       sum = 190 + 20 = 210
+// 100      i = i + 1 = 20 + 1 = 21
+// 98 21<=20 => false
+// 102 ...
+
+// порахувати добуток чисел від 1 до 10
+// let mult = 1;
+
+let x = 1;
+let mult = 1;
+
+while (x <= 10) {
+  mult = mult * x;
+  ++x;
+}
+console.log(mult);
