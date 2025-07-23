@@ -84,6 +84,32 @@ for (let i = 0; i < PHONES_COUNT; i++) {
 
 // filteredPhones.forEach((p) => console.log(`${p.brand}: ${p.isNfc}`));
 
-phones
-  .filter((p) => p.isNfc)
-  .forEach((p) => console.log(`${p.brand}: ${p.isNfc}`));
+// phones
+//   .filter((p) => p.isNfc)
+//   .forEach((p) => console.log(`${p.brand}: ${p.isNfc}`));
+
+// 7 Вивести дані про моделі apple 2016 року
+
+// const applePhone = phones.filter(
+//   (p) => p.brand === "IPhone" && p.makeYear === 2016
+// );
+// console.table(applePhone);
+
+// (+ every, some)
+// *8 Перевірити, чи є золоті телефони
+
+// const goldPhone = phones.some((p) => p.color === "gold");
+// console.table(goldPhone);
+
+// *9 Перевірити, чи всі телефони пізніше 2013 випуску
+
+// const phones2013 = phones.every((p) => p.makeYear >= 2013);
+// console.table(phones2013);
+
+// console.log(phones.every((p) => p.makeYear >= 2013))
+
+// *10 Дізнатися, чи всі білі айфони з нфc
+
+// console.log(
+//   phones.every((p) => p.color === "white" && p.model === "IPhone" && isNfc)
+// );
