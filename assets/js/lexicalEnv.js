@@ -53,19 +53,43 @@ if (true) {
 
 // -----------------------------------------
 
-const a = 'global';
+// const a = 'global';
 
-function f1 () {
-  const a = 'local';
+// function f1 () {
+//   const a = 'local';
 
-  const f2 = function () {
-    console.log('a :>> ', a);
+//   const f2 = function () {
+//     console.log('a :>> ', a);
+//   };
+
+//   console.log('f2 :>> ', f2);
+
+//   return f2;
+// }
+
+// const f2FromF1 = f1(); // Function-object + LexicalEnvironment
+// f2FromF1();
+
+// Ex.: використовуючи замикання, реалізувати лічильник
+
+function counter () {
+  let i = 0;
+
+  return function () {
+    return ++i;
   };
-
-  console.log('f2 :>> ', f2);
-
-  return f2;
 }
 
-const f2FromF1 = f1(); // Function-object + LexicalEnvironment
-f2FromF1();
+const counter1 = counter();
+console.log('counter1() :>> ', counter1());
+console.log('counter1() :>> ', counter1());
+console.log('counter1() :>> ', counter1());
+console.log('counter1() :>> ', counter1());
+console.log('counter1() :>> ', counter1());
+
+// сюди повертається інший інстанс функції зі своїм оточенням
+const counter2 = counter();
+console.log('counter2() :>> ', counter2());
+console.log('counter2() :>> ', counter2());
+
+console.log('counter1() :>> ', counter1());
