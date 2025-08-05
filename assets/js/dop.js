@@ -486,7 +486,7 @@
 // 🔸 10. Знайти перший елемент, що є парним і більшим за 20
 // Використай find, щоб знайти таке число.
 
-const randomNumbers = [2, -1, 0, 7, -3, 4, -2, 5];
+// const randomNumbers = [2, -1, 0, 7, -3, 4, -2, 5];
 
 // for (let i = 0; i < randomNumbers.length; i++) {
 //   if (randomNumbers[i] % 2 === 0) {
@@ -509,3 +509,297 @@ const randomNumbers = [2, -1, 0, 7, -3, 4, -2, 5];
 // }
 // console.log(accum);
 // console.log(randomNumbers);
+
+//  Задача: Реалізувати клас UserProfile
+// Створи клас UserProfile, який описує профіль користувача в додатку.
+
+// Властивості:
+// username (рядок) — унікальне ім’я користувача
+
+// email (рядок) — електронна адреса
+
+// birthYear (число) — рік народження
+
+// bio (рядок) — коротка інформація про себе
+
+// isActive (булеве значення) — статус активності профілю
+
+// followers (число) — кількість підписників
+
+// class UserProfile {
+//   constructor(username, email, birthYear, bio, isActive, followers) {
+//     this.username = username;
+//     this.email = email;
+//     this.birthYear = birthYear;
+//     this.bio = bio;
+//     this.isActive = isActive;
+//     this.followers = followers;
+//     this.createdAt = new Date();
+//   }
+//   // Методи:
+//   // updateBio(newBio) — змінює біо користувача
+//   updateBio(newBio) {
+//     this.bio = newBio;
+//     return this;
+//   }
+//   // toggleActive() — змінює статус активності (true ↔ false)
+
+//   toggleActive() {
+//     this.isActive = !this.isActive;
+//     return this;
+//   }
+
+//   // addFollower() — збільшує кількість підписників на 1
+
+//   addFollower(value) {
+//     return (this.followers += value);
+//   }
+//   // removeFollower() — зменшує кількість підписників на 1, якщо > 0
+
+//   removeFollower(value) {
+//     if (this.followers > 0) return (this.followers -= value);
+//   }
+//   // getProfileSummary() — повертає короткий текстовий опис профілю
+
+//   getProfileSummary() {
+//     return `Користувач ${this.username} (${this.email}) народжений у ${this.birthYear}, має ${this.followers}. Статус: ${this.isActive}`;
+//   }
+
+//   // Геттери та сеттери:
+//   // Сеттер і геттер для followers з валідацією:
+//   // ➤ лише не від’ємне число
+
+//   set followers(value) {
+//     if (typeof value !== "number") {
+//       throw new TypeError("Value must be number");
+//     }
+//     if (value < 0) {
+//       throw new RangeError("Value must be not negative number");
+//     }
+//     this._followers = value;
+//     return;
+//   }
+
+//   get followers() {
+//     return this._followers;
+//   }
+
+//   // Сеттер і геттер для email:
+//   // ➤ перевірка, що містить символ @
+
+//   set email(value) {
+//     if (typeof value !== "string") {
+//       throw new TypeError("Email must be a string");
+//     }
+//     if (!value.includes("@")) {
+//       throw new Error("Email must contain '@'");
+//     }
+//     this._email = value;
+//   }
+//   get email() {
+//     return this._email;
+//   }
+// }
+
+// try {
+//   const userProfile1 = new UserProfile(
+//     "Ihor",
+//     "test@gmail.com",
+//     1998,
+//     "test",
+//     true,
+//     100
+//   );
+
+//   userProfile1.updateBio("123test");
+//   console.log(userProfile1);
+//   userProfile1.toggleActive();
+//   console.log(userProfile1);
+//   userProfile1.addFollower(1);
+//   console.log(userProfile1);
+//   userProfile1.removeFollower(1);
+//   console.log(userProfile1);
+//   console.log(userProfile1.getProfileSummary());
+// } catch (err) {
+//   if (err instanceof RangeError) {
+//     console.log("RangeError handling");
+//   } else if (err instanceof TypeError) {
+//     console.log("TypeError handling");
+//   } else {
+//     console.log("Error handling");
+//   }
+// }
+
+// Додатково:
+// При створенні об'єкта UserProfile, дата створення профілю автоматично фіксується (властивість createdAt, тип — Date).
+
+// Передбачити викид помилок, якщо передані некоректні значення.
+
+//-------------------------------------------------------------------------
+
+// Опис:
+// Створи клас Book, який представляє книгу в бібліотечному застосунку.
+
+// 🔸 Властивості:
+// title (рядок) — назва книги
+
+// author (рядок) — автор книги
+
+// year (число) — рік видання
+
+// pages (число) — кількість сторінок
+
+// isAvailable (булеве значення) — чи доступна книга для видачі
+
+// rating (число) — рейтинг книги (0–5)
+
+// createdAt (тип — Date) — дата додавання книги до системи (встановлюється автоматично)
+
+// class Book {
+//   constructor(title, author, year, pages, isAvailable, rating) {
+//     this.title = title;
+//     this.author = author;
+//     this.year = year;
+//     this.pages = pages;
+//     this.isAvailable = isAvailable;
+//     this.rating = rating;
+//     this.createdAt = new Date();
+//   }
+//   // 🔸 Методи:
+//   // toggleAvailability() — змінює доступність книги (true ↔ false)
+
+//   toggleAvailability() {
+//     this.isAvailable = !this.isAvailable;
+//     return this;
+//   }
+
+//   // updateRating(newRating) — змінює рейтинг (тільки якщо він у межах від 0 до 5)
+
+//   updateRating(newRating) {
+//     this.rating = newRating;
+//     return this;
+//   }
+//   // getBookInfo() — повертає короткий опис книги:
+//   // "Назва: НазваКниги, Автор: Ім'яАвтора, Рік: 2000, Рейтинг: 4.5"
+
+//   getBookInfo() {
+//     return `Назва: ${this.title} Автор: ${this.author}, Рік: ${this.year}, Рейтинг: ${this.rating}`;
+//   }
+
+//   // 🔸 Геттери та сеттери:
+//   // Сеттер для rating:
+
+//   // тільки числа від 0 до 5 включно
+//   // інакше — throw new RangeError
+
+//   set rating(value) {
+//     if (typeof value !== "number") {
+//       throw new TypeError("Input number value");
+//     }
+//     if (value < 0 && value > 5) {
+//       throw new RangeError("Value must be 0 to 5");
+//     }
+//     this._rating = value;
+//   }
+
+//   get rating() {
+//     return this._rating;
+//   }
+//   // Сеттер для title:
+
+//   // тільки рядок, довжина не менше 1 символу
+
+//   // інакше — throw new Error("Invalid title")
+//   set title(value) {
+//     if (typeof value !== "string") {
+//       throw new TypeError("Value must be a string");
+//     }
+//     if (value.length === 0) {
+//       throw new RangeError("Title must be at least 1 character long");
+//     }
+//     this._title = value;
+//   }
+
+//   get title() {
+//     return this._title;
+//   }
+
+//   //нечисловий year
+//   set year(value) {
+//     if (typeof value !== "number") {
+//       throw new TypeError("Year must be number");
+//     }
+//     this._year = value;
+//   }
+//   get year() {
+//     return this._year;
+//   }
+// }
+
+// try {
+//   const book1 = new Book("test", "test", 2000, 100, true, 1);
+//   console.log(book1);
+//   book1.toggleAvailability();
+//   console.log(book1);
+//   book1.updateRating(3);
+//   console.log(book1);
+//   book1.getBookInfo();
+//   console.log(book1.getBookInfo());
+// } catch (err) {
+//   if (err instanceof RangeError) {
+//     console.log("RangeError handling");
+//   } else if (err instanceof TypeError) {
+//     console.log("TypeError handling");
+//   } else {
+//     console.log("Error handling");
+//   }
+// }
+
+// 🔹 Передбач обробку помилок при створенні об’єкта (наприклад, якщо передано нечисловий year, некоректний rating, тощо).
+
+/*
+
+Управление автомобилем
+
+Создайте класс Car, который представляет автомобиль с полями:
+- производитель (manufacturer)
+- текущая скорость (speed)
+- максимальная скорость (maxSpeed)
+
+
+
+Методы:
+- ускорение
+- торможение
+- отображение скорости
+
+*/
+
+class Car {
+  constructor(manufacturer, speed, maxSpeed) {
+    this.manufacturer = manufacturer;
+    this.speed = speed;
+    this.maxSpeed = maxSpeed;
+  }
+  accelerationSpeed(value) {
+    if (value > 0 && this.speed + value <= this.maxSpeed) {
+      this.speed = this.speed + value;
+    }
+    return this.speed
+  }
+  brakingSpeed(value) {
+    if (value > 0 && this.speed - value >= 0) {
+      this.speed = this.speed - value;
+    }
+    return this.speed;
+  }
+  speedDisplay() {
+    return `Скорость: ${this.speed}`;
+  }
+}
+
+const car1 = new Car("Mitsubishi", 50, 200);
+console.log(car1);
+console.log(car1.accelerationSpeed(100))
+console.log(car1.brakingSpeed(150));
+console.log(car1.speedDisplay());
