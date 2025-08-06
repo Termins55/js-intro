@@ -775,31 +775,193 @@
 
 */
 
-class Car {
-  constructor(manufacturer, speed, maxSpeed) {
-    this.manufacturer = manufacturer;
-    this.speed = speed;
-    this.maxSpeed = maxSpeed;
-  }
-  accelerationSpeed(value) {
-    if (value > 0 && this.speed + value <= this.maxSpeed) {
-      this.speed = this.speed + value;
+// class Car {
+//   constructor(manufacturer, speed, maxSpeed) {
+//     this.manufacturer = manufacturer;
+//     this.speed = speed;
+//     this.maxSpeed = maxSpeed;
+//   }
+//   accelerationSpeed(value) {
+//     if (value > 0 && this.speed + value <= this.maxSpeed) {
+//       this.speed = this.speed + value;
+//     }
+//     return this.speed
+//   }
+//   brakingSpeed(value) {
+//     if (value > 0 && this.speed - value >= 0) {
+//       this.speed = this.speed - value;
+//     }
+//     return this.speed;
+//   }
+//   speedDisplay() {
+//     return `Скорость: ${this.speed}`;
+//   }
+// }
+
+// const car1 = new Car("Mitsubishi", 50, 200);
+// console.log(car1);
+// console.log(car1.accelerationSpeed(100))
+// console.log(car1.brakingSpeed(150));
+// console.log(car1.speedDisplay());
+//__________________________________________________________________
+// Дано масив масивів:
+
+// const entries = [[1, "first"], [3, "third"]];
+// Завдання:
+
+// Створіть колекцію Map з цих даних.
+
+// const entries = [
+//   [1, "first"],
+//   [3, "third"],
+// ];
+
+// const map1 = new Map(entries);
+// console.log(map1);
+
+// Отримайте кількість елементів у мапі.
+// console.log(map1.size);
+// Додайте новий елемент [2, "second"].
+// map1.set(2, "second");
+// Видаліть елемент з ключем 3.
+// map1.delete(3);
+
+// Здійсніть пошук за ключем 1.
+
+// console.log(map1.get(1));
+
+// Перевірте, чи є у мапі числівник для числа 2.
+
+// console.log(map1.has(2));
+
+// Отримайте масив ключів та масив значень окремо.
+
+// map1.forEach((value, key) => console.log(key, value));
+
+// console.log([...map1.keys()]);
+// console.log([...map1.values()]);
+//____________________________________________
+// Задача 2: Заміна чисел у тексті на числівники
+// Дано текст:
+
+// text
+// "I have 1 apple, 3 oranges, and 2 bananas."
+// Завдання:
+// Напишіть функцію replaceNumbersWithWords(text, numberMap), яка замінить усі числа у тексті на відповідні порядкові числівники з мапи numberMap.
+
+// Приклад мапи:
+
+// javascript
+// const numberMap = new Map([[1, "one"], [2, "two"], [3, "three"]]);
+// Очікуваний результат:
+
+// text
+// "I have one apple, three oranges, and two bananas."
+
+// const numberMap = new Map([
+//   [1, "one"],
+//   [2, "two"],
+//   [3, "three"]
+// ]);
+
+// function replaceNumbersWithWords(text) {
+//   return text.replace(/\d+/g, (match) => {
+//     const num = parseInt(match, 10);
+//     return numberMap.has(num) ? numberMap.get(num) : match;
+//   });
+// }
+
+// const firstPhrase = "I have 1 apple, 3 oranges, and 2 bananas.";
+// const convertedString = replaceNumbersWithWords(firstPhrase);
+// console.log(convertedString);
+//____________________________________________
+// Задача 3: Фільтрація та перетворення мапи
+// Дано мапу:
+
+// javascript
+// const originalMap = new Map([
+//   ["a", 10],
+//   ["b", 20],
+//   ["c", 30],
+//   ["d", 40],
+// ]);
+
+// // Завдання:
+
+// // Створіть нову мапу, де значення будуть збільшені на 5.
+
+// const increasedMap = new Map(
+//   Array.from(originalMap, ([key, value]) => [key, value + 5])
+// );
+// console.log(increasedMap);
+
+// // Відфільтруйте мапу, залишивши тільки ті елементи, де значення > 25.
+
+// const filteredMap = new Map(
+//   Array.from(originalMap).filter(([key, value]) => value > 25)
+// );
+// console.log(filteredMap);
+// // Перетворіть мапу на об’єкт.
+// const obj = Object.fromEntries(originalMap);
+// console.log(obj);
+// ____________________________________________
+// Задача 4: Об’єднання двох мап
+// Дано дві мапи:
+
+// javascript
+// const map1 = new Map([
+//   ["x", 1],
+//   ["y", 2],
+// ]);
+// const map2 = new Map([
+//   ["y", 3],
+//   ["z", 4],
+// ]);
+// const map3 = new Map(Array.from(map1, map2, ([key, value]) => key, value));
+// const map3 = [...map1];
+// const map4 = [...map2];
+// const map5 = new Map([...map1, ...map2]);
+// console.log(map5);
+// Завдання:
+// Об’єднайте їх у нову мапу combinedMap. Якщо ключі повторюються, перевагу має значення з map2.
+// ____________________________________________
+
+// Задача 5: Перевірка на ідентичність мап
+// Дано дві мапи:
+
+// javascript
+function areMapsEqual(map1, map2) {
+  // 1. Сначала проверяем размер
+  if (map1.size !== map2.size) return false;
+
+  // 2. Проверяем каждую пару ключ-значение
+  for (const [key, value] of map1) {
+    // Если ключа нет во второй мапе или значения не совпадают
+    if (!map2.has(key) || map2.get(key) !== value) {
+      return false;
     }
-    return this.speed
   }
-  brakingSpeed(value) {
-    if (value > 0 && this.speed - value >= 0) {
-      this.speed = this.speed - value;
-    }
-    return this.speed;
-  }
-  speedDisplay() {
-    return `Скорость: ${this.speed}`;
-  }
+
+  // 3. Если все проверки пройдены
+  return true;
 }
 
-const car1 = new Car("Mitsubishi", 50, 200);
-console.log(car1);
-console.log(car1.accelerationSpeed(100))
-console.log(car1.brakingSpeed(150));
-console.log(car1.speedDisplay());
+// Тестируем
+const mapA = new Map([
+  ["id", 1],
+  ["name", "Alice"],
+]);
+const mapB = new Map([
+  ["name", "Alice"],
+  ["id", 1],
+]);
+const mapC = new Map([
+  ["id", 1],
+  ["name", "Bob"],
+]);
+
+console.log(areMapsEqual(mapA, mapB)); // true
+console.log(areMapsEqual(mapA, mapC)); // false
+
+// Завдання:
+// Напишіть функцію areMapsEqual(map1, map2), яка перевіряє, чи мають мапи однакові пари ключ-значення (порядок не має значення).
